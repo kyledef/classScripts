@@ -21,6 +21,13 @@ sudo service apache2 restart
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
+# Install Laravel
+composer global require "laravel/installer=~1.1"
+# touch ~/.pam_environment
+# echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> ~/.pam_environment
+sudo echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> /etc/profile
+
+
 
 #Install Yeoman Tool
 sudo npm install -g yo grunt-cli bower
