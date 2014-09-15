@@ -17,6 +17,9 @@ sudo apt-get install -y git oracle-java8-installer sublime-text-installer nodejs
 sudo php5enmod mcrypt
 sudo service apache2 restart
 
+#Install Yeoman Tool
+sudo npm install -g grunt-cli bower yo 
+
 # Install composer
 curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
@@ -26,11 +29,6 @@ composer global require "laravel/installer=~1.1"
 # touch ~/.pam_environment
 # echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> ~/.pam_environment
 sudo echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> /etc/profile
-
-
-
-#Install Yeoman Tool
-sudo npm install -g grunt-cli bower yo 
 
 mkdir ~/dev
 
