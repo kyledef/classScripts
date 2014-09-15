@@ -30,7 +30,7 @@ sudo echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> /etc/profile
 
 
 #Install Yeoman Tool
-sudo npm install -g yo grunt-cli bower
+sudo npm install -g grunt-cli bower yo 
 
 mkdir ~/dev
 
