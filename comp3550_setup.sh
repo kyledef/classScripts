@@ -25,21 +25,25 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 # Install Laravel
-# composer global require "laravel/installer=~1.1"
-# touch ~/.pam_environment
-# echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> ~/.pam_environment
-# sudo echo "PATH DEFAULT=${PATH}:~/.composer/vendor/bin" >> /etc/profile
+read -p "The installation of Laravel takes some time. Will you like to install this now y/N" yn
+case $yn in
+	[Yy]* ) sudo composer global require "laravel/installer=~1.1"
+esac
+
 
 mkdir ~/dev
 
-read -p "Would you like to upgrade all the software in the system. Note while this is advisable it will take a considerable amount of time. Y/n " yn
+
+
+
+read -p "Would you like to upgrade all the software in the system. Note while this is advisable it will take a considerable amount of time. y/N " yn
 case $yn in
     [Yy]* ) sudo apt-get dist-upgrade -y;
 esac
 
 
 
-read -p "Do you wish to restart now to complete installation? Y/n " yn
+read -p "Do you wish to restart now to complete installation? y/N " yn
 case $yn in
     [Yy]* ) sudo reboot;
 esac
