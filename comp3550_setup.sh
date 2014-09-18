@@ -4,9 +4,9 @@
 sudo add-apt-repository -y ppa:webupd8team/sublime-text-3
 sudo add-apt-repository -y ppa:webupd8team/java
 sudo add-apt-repository -y ppa:paolorotolo/android-studio
+sudo add-apt-repository -y ppa:chris-lea/node.js 
 
 sudo apt-get update
-
 
 sudo apt-get install -y git oracle-java8-installer sublime-text-installer nodejs nodejs-legacy npm apache2 php5 php5-mysql mysql-server-5.6 mysql-client-5.6 phpmyadmin php5-mcrypt curl
 
