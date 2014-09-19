@@ -8,7 +8,7 @@ sudo add-apt-repository -y ppa:chris-lea/node.js
 
 sudo apt-get update
 
-sudo apt-get install -y git oracle-java8-installer sublime-text-installer nodejs nodejs-legacy npm apache2 php5 php5-mysql mysql-server-5.6 mysql-client-5.6 phpmyadmin php5-mcrypt curl
+sudo apt-get install -y git oracle-java8-installer sublime-text-installer nodejs apache2 php5 php5-mysql mysql-server-5.6 mysql-client-5.6 phpmyadmin php5-mcrypt curl
 
 
 # Install dependencies for PHP development
