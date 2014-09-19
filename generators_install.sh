@@ -19,6 +19,7 @@ if [ "$NODEVER" == "v0.10.25" ];
 				sudo apt-get -y remove nodejs nodejs-legacy;
 				#Unisntall any remaining packages not needed
 				sudo apt-get -y autoremove;
+				sudo add-apt-repository -y ppa:chris-lea/node.js 
 				sudo apt-get update;
 				sudo apt-get -y install nodejs;
 				sudo apt-get dist-upgrade -y;
