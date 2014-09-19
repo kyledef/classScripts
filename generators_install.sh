@@ -12,15 +12,15 @@ change=false
 NODEVER=$(node --version)
 if [ "$NODEVER" == "v0.10.25" ];
 	then
-		read -p "UNeed to Upgrade Dependencies before continuing. Upgrade? Y/n " yn
+		read -p "You need to Upgrade Dependencies before continuing. Upgrade? Y/n " yn
 		case $yn in
 			[Yy]* )
 				#Uninstall old version as simple upgrade causing conflict problems
-				sudo apt-get remove nodejs nodejs-legacy;
+				sudo apt-get -y remove nodejs nodejs-legacy;
 				#Unisntall any remaining packages not needed
-				sudo apt-get autoremove;
+				sudo apt-get -y autoremove;
 				sudo apt-get update;
-				sudo apt-get install nodejs;
+				sudo apt-get -y install nodejs;
 				sudo apt-get dist-upgrade -y;
 				sudo npm -g update;
 				change=true
