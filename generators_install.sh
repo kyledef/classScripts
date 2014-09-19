@@ -5,6 +5,43 @@ function installGen {
 	sudo npm install -g $1
 }
 
+
+change=false
+
+
+NODEVER=$(node --version)
+if [ "$NODEVER" == "v0.10.25" ];
+	then
+		read -p "UNeed to Upgrade Dependencies before continuing. Upgrade? Y/n " yn
+		case $yn in
+			[Yy]* )
+				#Uninstall old version as simple upgrade causing conflict problems
+				sudo apt-get remove nodejs nodejs-legacy;
+				#Unisntall any remaining packages not needed
+				sudo apt-get autoremove;
+				sudo apt-get update;
+				sudo apt-get install nodejs;
+				sudo apt-get dist-upgrade -y;
+				sudo npm -g update;
+				change=true
+		esac
+else
+	YOVER=$(yo -version)
+	if [ "$YOVER" == "1.1.2" ];
+		then
+			sudo npm -g update
+			change=true
+	fi
+fi
+
+if $change; then
+	read -p "Do you wish to restart now to complete installation? y/N " yn
+	case $yn in
+	    [Yy]* ) sudo reboot;
+	esac 
+fi
+
+
 echo "This script will be used to install the generators for yeoman"
 
 title="Installing Generators"
@@ -18,25 +55,25 @@ select opt in "${options[@]}" "Quit"; do
     case "$REPLY" in
 
     1 ) 
-		echo "Installing All Generators"
-		sudo npm install -g generator-angular generator-webapp generator-polymer generator-express
+		echo "Installing All Generators";
+		sudo npm install -g generator-angular generator-webapp generator-polymer generator-express;
 		echo "Goodbye!"; 
 		break;;
     2 ) 
-		echo "Installing Webapp Generator"
-		installGen generator-webapp
+		echo "Installing Webapp Generator";
+		installGen generator-webapp;
 		;;
     3 ) 
-		echo "Installing Angular Generator"
-		installGen generator-angular
+		echo "Installing Angular Generator";
+		installGen generator-angular;
 		;;
 	4 ) 
-		echo "Installing Polymer Generator"
-		installGen generator-polymer
+		echo "Installing Polymer Generator";
+		installGen generator-polymer;
 		;;
 	5 ) 
-		echo "Installing Express Generator"
-		installGen generator-express
+		echo "Installing Express Generator";
+		installGen generator-express;
 		;;
 
     $(( ${#options[@]}+1 )) ) 
