@@ -22,5 +22,5 @@ bash generators_install.sh
 Alternatively
 ```ShellSession
 chmod +x generators_install.sh
-./comp3550_setup.sh
+./generators_install.sh
 ```
