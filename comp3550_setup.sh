@@ -25,7 +25,7 @@ curl -sS https://getcomposer.org/installer | php
 sudo mv composer.phar /usr/local/bin/composer
 
 # Install Laravel
-read -p "The installation of Laravel takes some time. Will you like to install this now y/N" yn
+read -p "The installation of Laravel takes some time. Will you like to install this now y/N " yn
 case $yn in
 	[Yy]* ) sudo composer global require "laravel/installer=~1.1"
 esac
