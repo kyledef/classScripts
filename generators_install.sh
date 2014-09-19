@@ -16,7 +16,9 @@ if [ "$NODEVER" == "v0.10.25" ];
 		case $yn in
 			[Yy]* )
 				#Uninstall old version as simple upgrade causing conflict problems
-				sudo apt-get -y remove nodejs nodejs-legacy;
+				sudo apt-get -y --purge remove nodejs nodejs-legacy;
+				# Removed all installed modules
+				sudo rm -rf /usr/lib/node_modules/
 				#Unisntall any remaining packages not needed
 				sudo apt-get -y autoremove;
 				sudo add-apt-repository -y ppa:chris-lea/node.js 
@@ -47,7 +49,7 @@ echo "This script will be used to install the generators for yeoman"
 
 title="Installing Generators"
 prompt="Pick an option:"
-options=("Install All Generators" "Install Webapp Generator" "Install Angular Generator" "Install polymer Generator" "Install Node Express Generator")
+options=("Install All Generators (Recommended)" "Install Webapp Generator" "Install Angular Generator" "Install polymer Generator" "Install Node Express Generator")
 
 echo "$title"
 PS3="$prompt "
